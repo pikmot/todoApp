@@ -1,0 +1,21 @@
+@use "../../scss/mixins/mixins";
+@use "../../scss/variables/colors" as *;
+@use "../../scss/variables/fonts" as *;
+
+.container {
+  @include mixins.dimension(300px, 900px);
+
+  background: $blue-color;
+  backdrop-filter: blur(12px);
+
+  border-radius: 12px;
+  box-shadow: 0 8px 32px 0 $shadow-color;
+  border: 4px solid $border-color;
+
+  font-family: $paragraph-font;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+
+  color: $blue-color-font;
+}

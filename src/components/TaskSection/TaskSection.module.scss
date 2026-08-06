@@ -1,0 +1,14 @@
+@use "../../scss/mixins/mixins";
+@use "../../scss/variables/colors" as *;
+
+.container {
+  @include mixins.dimension(100%, 100%);
+
+  @include mixins.flexbox();
+
+  @include mixins.wrap();
+
+  column-gap: 12px;
+
+  background-color: $bg-color-light;
+}

@@ -1,2 +1,7 @@
+@use "../../scss/mixins/mixins";
+@use "../../scss/variables/colors" as *;
+
 .home {
+  @include mixins.dimension(100vw, 100vh);
+  background-color: $bg-color;
 }

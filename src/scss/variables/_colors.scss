@@ -1,9 +1,17 @@
-$header-color: oklch(27.9% 0.041 260.031); //slate 9
+$header-color: oklch(98.4% 0.003 247.858); //slate 1
 
-$green-color: oklch(72.3% 0.219 149.579); //green 6
+$green-color: oklch(72.3% 0.219 149.579/ 0.15); //green 6
 $orange-color: oklch(70.5% 0.213 47.604); //orange 6
-$red-color: oklch(63.7% 0.237 25.331); //red 6
-$blue-color: oklch(68.5% 0.169 237.323); //sky 6
+$red-color: oklch(63.7% 0.237 25.331/ 0.15); //red 6
+$blue-color: oklch(69.435% 0.15883 239.919 / 0.15); //sky 6
 
-$shadow-color: hsla(0, 0%, 0%, 0.25);
-$border-color: hsla(0, 0%, 74%, 0.25);
+$green-color-font: oklch(53.264% 0.14984 149.14); //green 6
+$orange-color-font: oklch(70.5% 0.213 47.604); //orange 6
+$red-color-font: oklch(45.976% 0.188 28.106); //red 6
+$blue-color-font: oklch(46.441% 0.0811 235.068); //sky 6
+
+$bg-color: oklch(55.4% 0.046 257.417); //slate 6
+$bg-color-light: oklch(96.8% 0.007 247.896); //slate 2
+
+$shadow-color: hsla(0, 0%, 0%, 0.15);
+$border-color: rgba(255, 255, 255, 0.25);
