@@ -1,0 +1,15 @@
+@use "../../scss/variables/colors" as *;
+@use "../../scss/variables/fonts" as *;
+
+.header {
+  text-align: center;
+
+  font-family: $header-font;
+
+  color: $header-color;
+
+  font-weight: 900;
+  font-size: 32px;
+
+  padding-top: 8px;
+}
