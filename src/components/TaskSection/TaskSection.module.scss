@@ -2,7 +2,7 @@
 @use "../../scss/variables/colors" as *;
 
 .container {
-  @include mixins.dimension(100%, 100%);
+  @include mixins.dimension(100%, 93%);
 
   @include mixins.flexbox();
 

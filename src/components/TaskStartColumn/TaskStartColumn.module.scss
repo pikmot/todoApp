@@ -5,6 +5,13 @@
 .container {
   @include mixins.dimension(300px, 900px);
 
+  @include mixins.flexbox(column, Start);
+  // @include mixins.wrap();
+
+  overflow: auto;
+
+  row-gap: 12px;
+
   background: $blue-color;
   backdrop-filter: blur(12px);
 
@@ -14,8 +21,15 @@
 
   font-family: $paragraph-font;
   text-align: center;
-  font-size: 24px;
+  font-size: 36px;
   font-weight: 700;
 
   color: $blue-color-font;
+
+  &__header {
+    padding: 6px 0px 0px 0px;
+    margin-bottom: 12px;
+  }
+  &__task {
+  }
 }

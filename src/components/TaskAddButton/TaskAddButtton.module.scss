@@ -1,0 +1,23 @@
+@use "../../scss/mixins/mixins";
+@use "../../scss/variables/colors" as *;
+
+.container {
+  @include mixins.dimension(300px, 75px);
+
+  margin-right: 624px;
+  margin-bottom: 12px;
+
+  background-color: $button-color-transparent;
+
+  backdrop-filter: blur(12px);
+
+  border-radius: 12px;
+  border: 4px dashed $shadow-color;
+
+  border-radius: 12px;
+
+  text-align: center;
+  line-height: 54px;
+
+  font-size: 64px;
+}

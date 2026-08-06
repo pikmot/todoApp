@@ -5,6 +5,11 @@
 .container {
   @include mixins.dimension(300px, 900px);
 
+  @include mixins.flexbox(column, Start);
+  @include mixins.wrap();
+
+  row-gap: 12px;
+
   background: $green-color;
   backdrop-filter: blur(12px);
 
@@ -18,4 +23,8 @@
   font-weight: 700;
 
   color: $green-color-font;
+
+  &__header {
+    padding: 6px 0px 12px 0px;
+  }
 }
