@@ -9,6 +9,12 @@ export default function TaskPendingColumn() {
       <Task></Task>
       <Task></Task>
       <Task></Task>
+      <Task></Task>
+      <Task></Task>
+      <Task></Task>
+      <Task></Task>
+      <Task></Task>
+      <Task></Task>
     </div>
   );
 }

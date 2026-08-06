@@ -6,7 +6,6 @@ export default function TaskStartColumn() {
   return (
     <div className={classes.container}>
       <p className={classes.container__header}>Start</p>
-
       <Task></Task>
       <Task></Task>
       <Task></Task>

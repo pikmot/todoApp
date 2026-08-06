@@ -6,8 +6,8 @@
   @include mixins.dimension(300px, 900px);
 
   @include mixins.flexbox(column, Start);
-  @include mixins.wrap();
 
+  overflow: auto;
   row-gap: 12px;
 
   background: $green-color;
@@ -19,12 +19,17 @@
 
   font-family: $paragraph-font;
   text-align: center;
-  font-size: 24px;
+  font-size: 36px;
   font-weight: 700;
 
   color: $green-color-font;
 
   &__header {
-    padding: 6px 0px 12px 0px;
+    padding: 6px 0px 0px 0px;
+    margin-bottom: 12px;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 }

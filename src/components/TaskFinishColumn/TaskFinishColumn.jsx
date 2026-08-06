@@ -9,6 +9,12 @@ export default function TaskFinishColumn() {
       <Task></Task>
       <Task></Task>
       <Task></Task>
+      <Task></Task>
+      <Task></Task>
+      <Task></Task>
+      <Task></Task>
+      <Task></Task>
+      <Task></Task>
     </div>
   );
 }

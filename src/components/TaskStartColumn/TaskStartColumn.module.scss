@@ -32,4 +32,8 @@
   }
   &__task {
   }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
