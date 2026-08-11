@@ -1,6 +1,8 @@
 import classes from "./Modal.module.scss";
 
-import { useEffect, useEffectEvent, useState } from "react";
+import { useEffect, useState } from "react";
+
+import { TaskData, ModalProps } from "../../pages/Home/Home";
 
 function Modal({
   task,
@@ -16,23 +18,23 @@ function Modal({
   modalData,
   setModalData,
   reference,
-}) {
+}: ModalProps) {
   //check if title or descriptiong being edited
   const [editingTitle, setEditingTitle] = useState(false);
   const [editingDescription, setEditingDescription] = useState(false);
 
   useEffect(() => {
     if (modalToggle) {
-      reference.current.showModal();
+      reference.current?.showModal();
     } else {
-      reference.current.close();
+      reference.current?.close();
     }
   }, [modalToggle, modalTaskStatus, taskTitle, taskDescription]);
 
   const handleClose = () => {
     //set and close
     setModalToggle(false);
-    reference.current.close();
+    reference.current?.close();
 
     //reset modal after close -> remove any changes
 
@@ -46,7 +48,7 @@ function Modal({
     // setModalTaskStatus(modalData["status"]);
   };
 
-  const populateOtherStatus = (val) => {
+  const populateOtherStatus = (val: string) => {
     const status = ["START", "PENDING", "FINISHED"];
 
     let ls = [];
@@ -61,7 +63,7 @@ function Modal({
   };
 
   const removeTask = () => {
-    let newArr = [];
+    let newArr: TaskData[] = [];
 
     //remove existing
     setTask(
@@ -86,7 +88,7 @@ function Modal({
           taskID: modalData["taskID"],
           title: taskTitle,
           description: taskDescription,
-          status: modalTaskStatus,
+          status: modalTaskStatus ?? "",
         },
       ]),
     );
@@ -95,10 +97,10 @@ function Modal({
     setEditingDescription(false);
 
     setModalToggle(false);
-    reference.current.close();
+    reference.current?.close();
   };
 
-  const handleStatusEdit = () => {
+  const handleStatusEdit = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setModalTaskStatus(event.target.value);
   };
 
@@ -110,7 +112,7 @@ function Modal({
     }
   };
 
-  const handleTitleChange = (e) => {
+  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTaskTitle(e.target.value);
   };
 
@@ -121,7 +123,7 @@ function Modal({
     }
   };
 
-  const handleDescriptionChange = (e) => {
+  const handleDescriptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTaskDescription(e.target.value);
   };
 

@@ -8,7 +8,7 @@ import TaskFinishColumn from "../TaskFinishColumn/TaskFinishColumn";
 
 import Modal from "../Modal/Modal";
 
-import { useEffect, useEffectEvent, useState } from "react";
+import { TaskSectionProps } from "../../pages/Home/Home";
 
 export default function TaskSection({
   task,
@@ -26,7 +26,7 @@ export default function TaskSection({
   modalData,
   setModalToggle,
   setModalData,
-}) {
+}: TaskSectionProps) {
   return (
     <div className={classes.container}>
       <TaskAddButtton

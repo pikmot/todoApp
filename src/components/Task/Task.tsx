@@ -2,8 +2,10 @@ import classes from "./Task.module.scss";
 
 import { useEffect } from "react";
 
+import { TaskProps } from "../../pages/Home/Home";
+
 export default function Task({
-  taskID = "-1",
+  taskID = -1,
   title = "-1",
   description = "-1",
   status = "-1",
@@ -15,7 +17,7 @@ export default function Task({
   setModalData,
   task,
   setTask,
-}) {
+}: TaskProps) {
   useEffect(() => {}, [modalData]);
 
   const truncateText = (text, limit) => {

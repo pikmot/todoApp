@@ -1,8 +1,13 @@
 import classes from "./TaskAddButtton.module.scss";
 
-import { useState } from "react";
+import { TaskAddButtonProps } from "../../pages/Home/Home";
 
-export default function TaskAddButtton({ taskID, setTaskID, task, setTask }) {
+export default function TaskAddButtton({
+  taskID,
+  setTaskID,
+  task,
+  setTask,
+}: TaskAddButtonProps) {
   const handleClick = () => {
     setTask([
       ...task,
@@ -14,10 +19,10 @@ export default function TaskAddButtton({ taskID, setTaskID, task, setTask }) {
       },
     ]);
 
-    incrementID(taskID);
+    incrementID(+taskID);
   };
 
-  const incrementID = (val) => {
+  const incrementID = (val: number) => {
     setTaskID(val + 1);
   };
 

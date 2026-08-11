@@ -1,27 +1,24 @@
-import classes from "./TaskStartColumn.module.scss";
+import classes from "./TaskFinishColumn.module.scss";
 
 import Task from "../Task/Task";
 
-import { useEffect } from "react";
+import { TaskColumnProps } from "../../pages/Home/Home";
 
-export default function TaskStartColumn({
+export default function TaskFinishColumn({
   task = [],
   setTask,
   modalTaskStatus,
   setModalTaskStatus,
-  taskID,
-  setTaskID,
   modalToggle,
   modalData,
   setModalToggle,
   setModalData,
-}) {
-  useEffect(() => {}, [modalData]);
+}: TaskColumnProps) {
   return (
-    <div id="StartColumn" className={classes.container}>
-      <p className={classes.container__header}>START</p>
+    <div id="FinishColumn" className={classes.container}>
+      <p className={classes.container__header}>FINISH</p>
       {task.map((item, index) => {
-        if (item["status"] === "START") {
+        if (item["status"] === "FINISHED") {
           return (
             <Task
               key={index}

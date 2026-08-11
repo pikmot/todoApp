@@ -1,24 +1,24 @@
-import classes from "./TaskFinishColumn.module.scss";
+import classes from "./TaskPendingColumn.module.scss";
 
 import Task from "../Task/Task";
 
-export default function TaskFinishColumn({
+import { TaskColumnProps } from "../../pages/Home/Home";
+
+export default function TaskPendingColumn({
   task = [],
   setTask,
   modalTaskStatus,
   setModalTaskStatus,
-  taskID,
-  setTaskID,
   modalToggle,
   modalData,
   setModalToggle,
   setModalData,
-}) {
+}: TaskColumnProps) {
   return (
-    <div id="FinishColumn" className={classes.container}>
-      <p className={classes.container__header}>FINISH</p>
+    <div id="PendingColumn" className={classes.container}>
+      <p className={classes.container__header}>PENDING</p>
       {task.map((item, index) => {
-        if (item["status"] === "FINISHED") {
+        if (item["status"] === "PENDING") {
           return (
             <Task
               key={index}
@@ -32,6 +32,8 @@ export default function TaskFinishColumn({
               modalToggle={modalToggle}
               setModalToggle={setModalToggle}
               setModalData={setModalData}
+              task={task}
+              setTask={setTask}
             />
           );
         }

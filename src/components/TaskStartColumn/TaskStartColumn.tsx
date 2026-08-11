@@ -1,24 +1,27 @@
-import classes from "./TaskPendingColumn.module.scss";
+import classes from "./TaskStartColumn.module.scss";
 
 import Task from "../Task/Task";
 
-export default function TaskPendingColumn({
+import { useEffect } from "react";
+
+import { TaskColumnProps } from "../../pages/Home/Home";
+
+export default function TaskStartColumn({
   task = [],
   setTask,
   modalTaskStatus,
   setModalTaskStatus,
-  taskID,
-  setTaskID,
   modalToggle,
   modalData,
   setModalToggle,
   setModalData,
-}) {
+}: TaskColumnProps) {
+  useEffect(() => {}, [modalData]);
   return (
-    <div id="PendingColumn" className={classes.container}>
-      <p className={classes.container__header}>PENDING</p>
+    <div id="StartColumn" className={classes.container}>
+      <p className={classes.container__header}>START</p>
       {task.map((item, index) => {
-        if (item["status"] === "PENDING") {
+        if (item["status"] === "START") {
           return (
             <Task
               key={index}
@@ -32,6 +35,8 @@ export default function TaskPendingColumn({
               modalToggle={modalToggle}
               setModalToggle={setModalToggle}
               setModalData={setModalData}
+              task={task}
+              setTask={setTask}
             />
           );
         }
