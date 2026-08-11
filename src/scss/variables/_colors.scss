@@ -13,7 +13,7 @@ $red-color-font: oklch(45.976% 0.188 28.106); //red 6
 $blue-color-font: oklch(46.441% 0.0811 235.068); //sky 6
 
 $bg-color: oklch(55.4% 0.046 257.417); //slate 6
-$bg-color-light: oklch(96.8% 0.007 247.896); //slate 2
+$bg-color-light: oklch(100% 0.00011 271.152); //slate 2
 
 $button-color-transparent: oklch(9.693% 0.00001 271.152 / 0.15); //slate 1
 
@@ -21,3 +21,5 @@ $task-color-transparent: oklch(98.415% 0.00352 248.585 / 0.75); //slate 1
 
 $shadow-color: hsla(0, 0%, 0%, 0.15);
 $border-color: rgba(255, 255, 255, 0.25);
+
+$backdrop-color: rgba(128, 128, 128, 0.39);

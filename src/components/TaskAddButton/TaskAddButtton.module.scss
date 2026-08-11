@@ -20,4 +20,11 @@
   line-height: 54px;
 
   font-size: 64px;
+
+  &:hover {
+    color: $green-color-font;
+    background-color: $green-color;
+
+    transform: scale(1.05);
+  }
 }

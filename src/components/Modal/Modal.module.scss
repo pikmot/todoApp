@@ -1,0 +1,97 @@
+@use "../../scss/mixins/mixins";
+@use "../../scss/variables/colors" as *;
+@use "../../scss/variables/fonts" as *;
+
+.modal {
+  @include mixins.dimension(100%, 800px);
+  @include mixins.flexbox(column, center, center);
+  @include mixins.wrap();
+
+  row-gap: 12px;
+
+  // position: relative;
+
+  text-align: center;
+  z-index: -1;
+
+  border-radius: 12px;
+
+  background-color: $bg-color-light;
+
+  &::backdrop {
+    background-color: $backdrop-color;
+    backdrop-filter: blur(5px);
+  }
+
+  &__title {
+    font-size: 72px;
+    font-weight: 500;
+
+    &__input {
+      height: fit-content;
+      text-align: center;
+      font-size: 72px;
+      font-weight: 500;
+      background-color: transparent;
+      border: none;
+      outline: none;
+    }
+  }
+
+  &__body {
+    font-size: 48px;
+    font-weight: 300;
+    &__input {
+      text-align: center;
+      font-size: 48px;
+      font-weight: 300;
+      background-color: transparent;
+      border: none;
+      outline: none;
+    }
+  }
+
+  &__dropdown {
+    margin: 0px 12px;
+
+    width: fit-content;
+
+    font-size: 48px;
+    font-weight: 300;
+
+    align-self: center;
+
+    &__box {
+      width: fit-content;
+
+      height: 48px;
+      text-align: center;
+
+      border: 2px solid $shadow-color;
+
+      // justify-self: start;
+    }
+  }
+
+  &__cross {
+    background-color: $button-color-transparent;
+
+    border: 2px solid $shadow-color;
+
+    border-radius: 16px;
+
+    font-size: 32px;
+
+    position: absolute;
+    top: 32px;
+    right: 32px;
+
+    align-items: center;
+    line-height: 32px;
+  }
+
+  &__save {
+    font-size: 24px;
+    font-weight: 500;
+  }
+}

@@ -3,7 +3,9 @@
 @use "../../scss/variables/fonts" as *;
 
 .container {
-  @include mixins.dimension(250px, 150px);
+  @include mixins.dimension(250px, 75px);
+
+  @include mixins.flexbox(column);
 
   background: $task-color-transparent;
   backdrop-filter: blur(64px);
