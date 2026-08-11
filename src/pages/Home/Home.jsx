@@ -24,7 +24,7 @@ function Home() {
   // const [finishColumn, setFinishColumn] = useState([]);
 
   //modal
-  const [modalToggle, setModalToggle] = useState(true);
+  const [modalToggle, setModalToggle] = useState(false);
   const [modalData, setModalData] = useState([]);
 
   const modalElement = useRef(null);

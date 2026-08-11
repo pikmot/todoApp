@@ -3,7 +3,7 @@
 @use "../../scss/variables/fonts" as *;
 
 .container {
-  @include mixins.dimension(250px, 75px);
+  @include mixins.dimension(250px, 100px);
 
   @include mixins.flexbox(column);
 
@@ -18,17 +18,32 @@
   font-size: 24px;
   font-weight: 700;
 
+  z-index: 1;
+
   &:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 32px 0 $shadow-color;
   }
 
-  .header {
+  &__header {
     color: $text-header-color;
   }
 
-  .body {
+  &__body {
     color: $text-paragraph-color;
     font-size: 12px;
+  }
+
+  &__button {
+    opacity: 25%;
+    align-self: self-end;
+
+    font-size: 16px;
+
+    margin: 8px 8px 0px 0px;
+
+    &:hover {
+      opacity: 100%;
+    }
   }
 }

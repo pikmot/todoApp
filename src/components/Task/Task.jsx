@@ -13,6 +13,8 @@ export default function Task({
   modalData,
   setModalToggle,
   setModalData,
+  task,
+  setTask,
 }) {
   useEffect(() => {}, [modalData]);
 
@@ -41,11 +43,29 @@ export default function Task({
     }
   };
 
+  const handleDelete = (e) => {
+    //remove task from overall list
+
+    setTask(
+      task.filter((val) => {
+        return val["taskID"] !== taskID;
+      }),
+    );
+  };
+
   return (
     <div className={classes.container} onClick={handleClick}>
-      <div className={classes.header}>{truncateText(taskID, 3)}</div>
-      <div className={classes.header}>{truncateText(title, 15)}</div>
-      <div className={classes.body}>{truncateText(description, 35)}</div>
+      <div className={classes.container__button} onClick={handleDelete}>
+        X
+      </div>
+      <div className={classes.container__header}>
+        ID: {truncateText(taskID, 3)}
+      </div>
+
+      <div className={classes.container__header}>{truncateText(title, 15)}</div>
+      <div className={classes.container__body}>
+        {truncateText(description, 35)}
+      </div>
     </div>
   );
 }

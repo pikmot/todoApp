@@ -35,6 +35,8 @@ export default function TaskStartColumn({
               modalToggle={modalToggle}
               setModalToggle={setModalToggle}
               setModalData={setModalData}
+              task={task}
+              setTask={setTask}
             />
           );
         }
