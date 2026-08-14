@@ -43,11 +43,15 @@ export interface TaskProps {
   setModalData: (data: TaskData) => void;
   task: TaskData[];
   setTask: (task: TaskData[]) => void;
+  taskCount: number;
+  setTaskCount: (count: number) => void;
 }
 
 export interface TaskAddButtonProps {
   id: number;
   setid: (ID: number) => void;
+  taskCount: number;
+  setTaskCount: (count: number) => void;
   task: TaskData[];
   setTask: (task: TaskData[]) => void;
 }
@@ -55,6 +59,8 @@ export interface TaskAddButtonProps {
 export interface TaskColumnProps {
   task: TaskData[];
   setTask: (task: TaskData[]) => void;
+  taskCount: number;
+  setTaskCount: (count: number) => void;
   modalTaskStatus: string;
   setModalTaskStatus: (status: string) => void;
   id: number;
@@ -76,6 +82,8 @@ export interface TaskSectionProps {
   setModalTaskStatus: (status: string) => void;
   id: number;
   setid: (ID: number) => void;
+  taskCount: number;
+  setTaskCount: (count: number) => void;
   modalToggle: boolean;
   setModalToggle: (title: boolean) => void;
   modalData: TaskData;
@@ -122,11 +130,7 @@ function Home() {
 
   //run once during instatnioatoin and every time task added
   useEffect(() => {
-    console.log(task);
-
     getTasks();
-
-    console.log(task);
   }, [taskCount]);
 
   //run during run time
@@ -148,6 +152,8 @@ function Home() {
         setModalTaskStatus={setModalTaskStatus}
         id={id}
         setid={setid}
+        taskCount={taskCount}
+        setTaskCount={setTaskCount}
         modalToggle={modalToggle}
         modalData={modalData}
         setModalToggle={setModalToggle}

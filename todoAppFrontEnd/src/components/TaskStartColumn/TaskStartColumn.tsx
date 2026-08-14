@@ -15,6 +15,8 @@ export default function TaskStartColumn({
   modalData,
   setModalToggle,
   setModalData,
+  taskCount,
+  setTaskCount,
 }: TaskColumnProps) {
   useEffect(() => {}, [modalData]);
   return (
@@ -37,6 +39,8 @@ export default function TaskStartColumn({
               setModalData={setModalData}
               task={task}
               setTask={setTask}
+              taskCount={taskCount}
+              setTaskCount={setTaskCount}
             />
           );
         }

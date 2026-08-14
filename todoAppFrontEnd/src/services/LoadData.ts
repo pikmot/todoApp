@@ -1,5 +1,6 @@
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
+import { couldStartTrivia } from "typescript/unstable/ast";
 import { TaskData } from "../pages/Home/Home";
 
 export type TaskResponse = {
@@ -15,9 +16,6 @@ export const fetchAllTasks = async (): Promise<TaskData[]> => {
 
   // .then(console.log)
   // .catch(console.warn);
-
-  console.log(response);
-  console.log(typeof response);
 
   return response;
 };
@@ -36,14 +34,17 @@ export const createTask = async (data: TaskResponse) => {
 };
 
 export const deleteTask = async (id: number) => {
-  const response = await fetch(BACKEND_URL + "/tasks/" + id, {
+  console.log(id);
+
+  //no return needed! delete only
+  await fetch(BACKEND_URL + "/tasks/" + id, {
     method: "DELETE",
   });
 
-  if (!response.ok) {
-    throw new Error("Failed to Create TASK");
-  }
-  return (await response.json()) as TaskResponse;
+  // if (!response.ok) {
+  //   throw new Error("Failed to Create TASK");
+  // }
+  // return (await response.json()) as TaskResponse;
 };
 
 export const patchTask = async (id: number, data: TaskResponse) => {

@@ -13,6 +13,8 @@ export default function TaskPendingColumn({
   modalData,
   setModalToggle,
   setModalData,
+  taskCount,
+  setTaskCount,
 }: TaskColumnProps) {
   return (
     <div id="PendingColumn" className={classes.container}>
@@ -34,6 +36,8 @@ export default function TaskPendingColumn({
               setModalData={setModalData}
               task={task}
               setTask={setTask}
+              taskCount={taskCount}
+              setTaskCount={setTaskCount}
             />
           );
         }

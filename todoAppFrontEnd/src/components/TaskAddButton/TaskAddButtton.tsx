@@ -9,25 +9,29 @@ export default function TaskAddButtton({
   setid,
   task,
   setTask,
+  taskCount,
+  setTaskCount,
 }: TaskAddButtonProps) {
-  const handleClick = () => {
-    createTask({
+  const handleClick = async () => {
+    await createTask({
       title: `NEW TASK`,
       description: "NEW DESCRIPTION",
       status: "START",
     });
 
-    setTask([
-      ...task,
-      // {
-      //   id: id,
-      //   title: `NEW TASK`,
-      //   description: "NEW DESCRIPTION",
-      //   status: "START",
-      // },
-    ]);
+    // setTask([
+    //   ...task,
+    //   // {
+    //   //   id: id,
+    //   //   title: `NEW TASK`,
+    //   //   description: "NEW DESCRIPTION",
+    //   //   status: "START",
+    //   // },
+    // ]);
 
-    incrementID(+id);
+    // incrementID(+id);
+
+    setTaskCount(task.length);
   };
 
   const incrementID = (val: number) => {

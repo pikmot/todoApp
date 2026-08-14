@@ -4,6 +4,8 @@ import { useEffect } from "react";
 
 import { TaskProps } from "../../pages/Home/Home";
 
+import { deleteTask } from "../../services/LoadData";
+
 export default function Task({
   id = -1,
   title = "-1",
@@ -17,10 +19,12 @@ export default function Task({
   setModalData,
   task,
   setTask,
+  taskCount,
+  setTaskCount,
 }: TaskProps) {
   useEffect(() => {}, [modalData]);
 
-  const truncateText = (text, limit) => {
+  const truncateText = (text: string, limit: number) => {
     if (text.length > limit) {
       return text.slice(0, limit - 3) + "...";
     } else {
@@ -45,14 +49,17 @@ export default function Task({
     }
   };
 
-  const handleDelete = (e) => {
+  const handleDelete = async () => {
     //remove task from overall list
+    // setTask(
+    //   task.filter((val) => {
+    //     return val["id"] !== id;
+    //   }),
+    // );
 
-    setTask(
-      task.filter((val) => {
-        return val["id"] !== id;
-      }),
-    );
+    await deleteTask(id);
+
+    setTaskCount(taskCount - 1);
   };
 
   return (

@@ -13,6 +13,8 @@ export default function TaskFinishColumn({
   modalData,
   setModalToggle,
   setModalData,
+  taskCount,
+  setTaskCount,
 }: TaskColumnProps) {
   return (
     <div id="FinishColumn" className={classes.container}>
@@ -34,6 +36,8 @@ export default function TaskFinishColumn({
               setModalData={setModalData}
               task={task}
               setTask={setTask}
+              taskCount={taskCount}
+              setTaskCount={setTaskCount}
             />
           );
         }

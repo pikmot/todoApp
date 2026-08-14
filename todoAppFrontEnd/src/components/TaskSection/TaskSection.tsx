@@ -21,6 +21,8 @@ export default function TaskSection({
   setModalTaskStatus,
   id,
   setid,
+  taskCount,
+  setTaskCount,
   modalRef,
   modalToggle,
   modalData,
@@ -29,7 +31,14 @@ export default function TaskSection({
 }: TaskSectionProps) {
   return (
     <div className={classes.container}>
-      <TaskAddButtton id={id} setid={setid} task={task} setTask={setTask} />
+      <TaskAddButtton
+        id={id}
+        setid={setid}
+        taskCount={taskCount}
+        setTaskCount={setTaskCount}
+        task={task}
+        setTask={setTask}
+      />
 
       <Modal
         task={task}
@@ -49,6 +58,8 @@ export default function TaskSection({
       <TaskStartColumn
         task={task}
         setTask={setTask}
+        taskCount={taskCount}
+        setTaskCount={setTaskCount}
         modalTaskStatus={modalTaskStatus}
         setModalTaskStatus={setModalTaskStatus}
         id={id}
@@ -61,6 +72,8 @@ export default function TaskSection({
       <TaskPendingColumn
         task={task}
         setTask={setTask}
+        taskCount={taskCount}
+        setTaskCount={setTaskCount}
         modalTaskStatus={modalTaskStatus}
         setModalTaskStatus={setModalTaskStatus}
         id={id}
@@ -73,6 +86,8 @@ export default function TaskSection({
       <TaskFinishColumn
         task={task}
         setTask={setTask}
+        taskCount={taskCount}
+        setTaskCount={setTaskCount}
         modalTaskStatus={modalTaskStatus}
         setModalTaskStatus={setModalTaskStatus}
         id={id}
