@@ -68,7 +68,7 @@ function Modal({
     //remove existing
     setTask(
       task.filter((val) => {
-        if (val["taskID"] !== modalData["taskID"]) {
+        if (val["id"] !== modalData["id"]) {
           newArr.push(val);
           return true;
         }
@@ -85,7 +85,7 @@ function Modal({
     setTask(
       newArr.concat([
         {
-          taskID: modalData["taskID"],
+          id: modalData["id"],
           title: taskTitle,
           description: taskDescription,
           status: modalTaskStatus ?? "",
@@ -133,7 +133,7 @@ function Modal({
         X
       </div>
 
-      <div className={classes.modal__title}>ID: {modalData["taskID"]}</div>
+      <div className={classes.modal__title}>ID: {modalData["id"]}</div>
 
       {editingTitle ? (
         <input

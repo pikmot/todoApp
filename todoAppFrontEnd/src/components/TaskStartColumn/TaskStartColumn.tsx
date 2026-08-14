@@ -25,7 +25,7 @@ export default function TaskStartColumn({
           return (
             <Task
               key={index}
-              taskID={item["taskID"]}
+              id={item["id"]}
               title={item["title"]}
               description={item["description"]}
               status={item["status"]}

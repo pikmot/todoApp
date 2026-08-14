@@ -19,8 +19,8 @@ export default function TaskSection({
   setTaskDescription,
   modalTaskStatus,
   setModalTaskStatus,
-  taskID,
-  setTaskID,
+  id,
+  setid,
   modalRef,
   modalToggle,
   modalData,
@@ -29,12 +29,7 @@ export default function TaskSection({
 }: TaskSectionProps) {
   return (
     <div className={classes.container}>
-      <TaskAddButtton
-        taskID={taskID}
-        setTaskID={setTaskID}
-        task={task}
-        setTask={setTask}
-      />
+      <TaskAddButtton id={id} setid={setid} task={task} setTask={setTask} />
 
       <Modal
         task={task}
@@ -56,8 +51,8 @@ export default function TaskSection({
         setTask={setTask}
         modalTaskStatus={modalTaskStatus}
         setModalTaskStatus={setModalTaskStatus}
-        taskID={taskID}
-        setTaskID={setTaskID}
+        id={id}
+        setid={setid}
         modalToggle={modalToggle}
         modalData={modalData}
         setModalToggle={setModalToggle}
@@ -68,8 +63,8 @@ export default function TaskSection({
         setTask={setTask}
         modalTaskStatus={modalTaskStatus}
         setModalTaskStatus={setModalTaskStatus}
-        taskID={taskID}
-        setTaskID={setTaskID}
+        id={id}
+        setid={setid}
         modalToggle={modalToggle}
         modalData={modalData}
         setModalToggle={setModalToggle}
@@ -80,8 +75,8 @@ export default function TaskSection({
         setTask={setTask}
         modalTaskStatus={modalTaskStatus}
         setModalTaskStatus={setModalTaskStatus}
-        taskID={taskID}
-        setTaskID={setTaskID}
+        id={id}
+        setid={setid}
         modalToggle={modalToggle}
         modalData={modalData}
         setModalToggle={setModalToggle}

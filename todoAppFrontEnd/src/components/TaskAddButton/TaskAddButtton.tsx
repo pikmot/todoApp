@@ -1,29 +1,37 @@
 import classes from "./TaskAddButtton.module.scss";
 
+import { createTask } from "../../services/LoadData";
+
 import { TaskAddButtonProps } from "../../pages/Home/Home";
 
 export default function TaskAddButtton({
-  taskID,
-  setTaskID,
+  id,
+  setid,
   task,
   setTask,
 }: TaskAddButtonProps) {
   const handleClick = () => {
+    createTask({
+      title: `NEW TASK`,
+      description: "NEW DESCRIPTION",
+      status: "START",
+    });
+
     setTask([
       ...task,
-      {
-        taskID: taskID,
-        title: `NEW TASK`,
-        description: "NEW DESCRIPTION",
-        status: "START",
-      },
+      // {
+      //   id: id,
+      //   title: `NEW TASK`,
+      //   description: "NEW DESCRIPTION",
+      //   status: "START",
+      // },
     ]);
 
-    incrementID(+taskID);
+    incrementID(+id);
   };
 
   const incrementID = (val: number) => {
-    setTaskID(val + 1);
+    setid(val + 1);
   };
 
   return (

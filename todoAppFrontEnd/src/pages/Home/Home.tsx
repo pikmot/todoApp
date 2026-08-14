@@ -5,8 +5,10 @@ import TaskSection from "../../components/TaskSection/TaskSection";
 
 import { useState, useRef, useEffect, RefObject } from "react";
 
+import { fetchAllTasks } from "../../services/LoadData";
+
 export interface TaskData {
-  taskID: number;
+  id: number;
   title: string;
   description: string;
   status: string;
@@ -29,7 +31,7 @@ export interface ModalProps {
 }
 
 export interface TaskProps {
-  taskID: number;
+  id: number;
   title: string;
   description: string;
   status: string;
@@ -44,8 +46,8 @@ export interface TaskProps {
 }
 
 export interface TaskAddButtonProps {
-  taskID: number;
-  setTaskID: (ID: number) => void;
+  id: number;
+  setid: (ID: number) => void;
   task: TaskData[];
   setTask: (task: TaskData[]) => void;
 }
@@ -55,8 +57,8 @@ export interface TaskColumnProps {
   setTask: (task: TaskData[]) => void;
   modalTaskStatus: string;
   setModalTaskStatus: (status: string) => void;
-  taskID: number;
-  setTaskID: (ID: number) => void;
+  id: number;
+  setid: (ID: number) => void;
   modalToggle: boolean;
   setModalToggle: (title: boolean) => void;
   modalData: TaskData;
@@ -72,8 +74,8 @@ export interface TaskSectionProps {
   setTaskDescription: (description: string) => void;
   modalTaskStatus: string;
   setModalTaskStatus: (status: string) => void;
-  taskID: number;
-  setTaskID: (ID: number) => void;
+  id: number;
+  setid: (ID: number) => void;
   modalToggle: boolean;
   setModalToggle: (title: boolean) => void;
   modalData: TaskData;
@@ -89,7 +91,10 @@ function Home() {
   const [modalTaskStatus, setModalTaskStatus] = useState<string>("");
 
   //task counter
-  const [taskID, setTaskID] = useState(0);
+  const [id, setid] = useState(1);
+
+  //task number
+  const [taskCount, setTaskCount] = useState(1);
 
   //task title + description
   const [taskTitle, setTaskTitle] = useState("");
@@ -102,7 +107,7 @@ function Home() {
   //modal
   const [modalToggle, setModalToggle] = useState(false);
   const [modalData, setModalData] = useState<TaskData>({
-    taskID: 0,
+    id: 0,
     title: "",
     description: "",
     status: "",
@@ -110,8 +115,23 @@ function Home() {
 
   const modalElement = useRef<HTMLDialogElement | null>(null);
 
+  const getTasks = async () => {
+    const tasks = await fetchAllTasks();
+    setTask(tasks);
+  };
+
+  //run once during instatnioatoin and every time task added
   useEffect(() => {
-    // console.log(task);
+    console.log(task);
+
+    getTasks();
+
+    console.log(task);
+  }, [taskCount]);
+
+  //run during run time
+  useEffect(() => {
+    // getTasks();
   }, [task, modalData]);
 
   return (
@@ -126,8 +146,8 @@ function Home() {
         setTaskDescription={setTaskDescription}
         modalTaskStatus={modalTaskStatus}
         setModalTaskStatus={setModalTaskStatus}
-        taskID={taskID}
-        setTaskID={setTaskID}
+        id={id}
+        setid={setid}
         modalToggle={modalToggle}
         modalData={modalData}
         setModalToggle={setModalToggle}

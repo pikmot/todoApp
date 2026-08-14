@@ -3,6 +3,7 @@ package nology.io.todo.task;
 import java.util.List;
 import java.util.Optional;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import jakarta.validation.Valid;
@@ -14,9 +15,11 @@ import nology.io.todo.task.entities.Task;
 public class TaskService {
     
     private final TaskRepository repo;
+    private final ModelMapper mapper;
 
-    public TaskService(TaskRepository repo) {
+    public TaskService(TaskRepository repo, ModelMapper mapper) {
         this.repo = repo;
+        this.mapper = mapper;
     }
 
     public List<Task> findAll() {
@@ -25,15 +28,18 @@ public class TaskService {
 
     public Task create(CreateTaskRequest data) {
         
-        //sanetize here like remove white space
-        Task createdTask = new Task();
-        createdTask.setTitle(data.getTitle().trim());
-        createdTask.setDescription(data.getDescription().trim());
-        createdTask.setStatus(data.getStatus().trim());
+        // //sanetize here like remove white space
+        // Task createdTask = new Task();
+        // createdTask.setTitle(data.getTitle().trim());
+        // createdTask.setDescription(data.getDescription().trim());
+        // createdTask.setStatus(data.getStatus().trim());
 
-        //writing sql to save to database from repo
+        // //writing sql to save to database from repo
+        // 
+
+        Task createdTask =  this.mapper.map(data ,  Task.class);
         this.repo.saveAndFlush(createdTask);
-
+        
         return createdTask;
     }
 
@@ -68,18 +74,20 @@ public class TaskService {
         //else get the book and return
         Task foundTask = result.get();
 
-        //check null else set
-        if(data.getTitle() != null){
-            foundTask.setTitle(data.getTitle().trim());
-        }
+        // //check null else set
+        // if(data.getTitle() != null){
+        //     foundTask.setTitle(data.getTitle().trim());
+        // }
 
-        if(data.getDescription() != null){
-            foundTask.setDescription(data.getDescription().trim());
-        }
+        // if(data.getDescription() != null){
+        //     foundTask.setDescription(data.getDescription().trim());
+        // }
 
-        if(data.getStatus() !=null ){
-            foundTask.setStatus(data.getStatus());
-        }
+        // if(data.getStatus() !=null ){
+        //     foundTask.setStatus(data.getStatus());
+        // }
+
+        this.mapper.map(data,foundTask);
 
         //save the change in database
         this.repo.saveAndFlush(foundTask);
