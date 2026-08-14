@@ -50,14 +50,14 @@ export const deleteTask = async (id: number) => {
 export const patchTask = async (id: number, data: TaskResponse) => {
   const response = await fetch(BACKEND_URL + "/tasks/" + id, {
     method: "PATCH",
-    headers: { "Content-type": "application/json" },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   });
 
-  if (!response.ok) {
-    throw new Error("Failed to Create TASK");
-  }
-  return (await response.json()) as TaskResponse;
+  // if (!response.ok) {
+  //   throw new Error("Failed to Create TASK");
+  // }
+  // return data
 };
 
 // console.log("RUNNING TSX");

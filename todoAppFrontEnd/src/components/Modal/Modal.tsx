@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 
 import { TaskData, ModalProps } from "../../pages/Home/Home";
 
+import { patchTask, fetchAllTasks } from "../../services/LoadData";
+
 function Modal({
   task,
   setTask,
@@ -62,36 +64,52 @@ function Modal({
     return ls;
   };
 
-  const removeTask = () => {
-    let newArr: TaskData[] = [];
+  // const removeTask = () => {
+  //   let newArr: TaskData[] = [];
 
-    //remove existing
-    setTask(
-      task.filter((val) => {
-        if (val["id"] !== modalData["id"]) {
-          newArr.push(val);
-          return true;
-        }
-      }),
-    );
+  //   //remove existing
+  //   setTask(
+  //     task.filter((val) => {
+  //       if (val["id"] !== modalData["id"]) {
+  //         newArr.push(val);
+  //         return true;
+  //       }
+  //     }),
+  //   );
 
-    return newArr;
-  };
+  //   return newArr;
+  // };
 
-  const handleTaskChange = () => {
-    let newArr = removeTask();
+  const handleTaskChange = async () => {
+    // let newArr = removeTask();
 
-    //add updated version
-    setTask(
-      newArr.concat([
-        {
-          id: modalData["id"],
-          title: taskTitle,
-          description: taskDescription,
-          status: modalTaskStatus ?? "",
-        },
-      ]),
-    );
+    // //add updated version
+    // setTask(
+    //   newArr.concat([
+    //     {
+    //       id: modalData["id"],
+    //       title: taskTitle,
+    //       description: taskDescription,
+    //       status: modalTaskStatus ?? "",
+    //     },
+    //   ]),
+    // );
+    console.log(modalData["id"]);
+    console.log({
+      title: taskTitle,
+      description: taskDescription,
+      status: modalTaskStatus ?? "",
+    });
+
+    //if "" -> falsy SO we use && for first falsy
+    await patchTask(+modalData["id"], {
+      ...(taskTitle && { title: taskTitle }),
+      ...(taskDescription && { description: taskDescription }),
+      ...(modalTaskStatus && { status: modalTaskStatus ?? "" }),
+    });
+
+    //elegant solution? simply call fetch? Works
+    setTask(await fetchAllTasks());
 
     setEditingTitle(false);
     setEditingDescription(false);

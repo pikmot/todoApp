@@ -134,9 +134,10 @@ function Home() {
   }, [taskCount]);
 
   //run during run time
-  useEffect(() => {
-    // getTasks();
-  }, [task, modalData]);
+  // useEffect(() => {
+  //   // getTasks();
+  //   console.log(modalData);
+  // }, [task, modalData]);
 
   return (
     <div className={classes.home}>

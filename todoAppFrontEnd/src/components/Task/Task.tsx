@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 import { TaskProps } from "../../pages/Home/Home";
 
-import { deleteTask } from "../../services/LoadData";
+import { deleteTask, fetchAllTasks } from "../../services/LoadData";
 
 export default function Task({
   id = -1,
@@ -60,6 +60,8 @@ export default function Task({
     await deleteTask(id);
 
     setTaskCount(taskCount - 1);
+
+    setTask(await fetchAllTasks());
   };
 
   return (

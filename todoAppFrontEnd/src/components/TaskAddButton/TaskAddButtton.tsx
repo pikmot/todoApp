@@ -4,6 +4,8 @@ import { createTask } from "../../services/LoadData";
 
 import { TaskAddButtonProps } from "../../pages/Home/Home";
 
+import { fetchAllTasks } from "../../services/LoadData";
+
 export default function TaskAddButtton({
   id,
   setid,
@@ -31,7 +33,9 @@ export default function TaskAddButtton({
 
     // incrementID(+id);
 
-    setTaskCount(task.length);
+    // setTaskCount(task.length);
+
+    setTask(await fetchAllTasks());
   };
 
   const incrementID = (val: number) => {
