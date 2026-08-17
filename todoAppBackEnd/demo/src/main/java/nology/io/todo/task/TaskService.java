@@ -3,6 +3,7 @@ package nology.io.todo.task;
 import java.util.List;
 import java.util.Optional;
 
+import nology.io.todo.common.exceptions.BadRequestException;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +11,7 @@ import jakarta.validation.Valid;
 import nology.io.todo.task.dtos.CreateTaskRequest;
 import nology.io.todo.task.dtos.UpdateTaskRequest;
 import nology.io.todo.task.entities.Task;
+
 
 @Service
 public class TaskService {
@@ -36,6 +38,12 @@ public class TaskService {
 
         // //writing sql to save to database from repo
         // 
+
+        if(data.getTitle().isBlank() || data.getDescription().isBlank()  || data.getStatus()== null){
+    
+            throw new BadRequestException("Data body invalid");
+
+        }
 
         Task createdTask =  this.mapper.map(data ,  Task.class);
         this.repo.saveAndFlush(createdTask);
@@ -70,6 +78,7 @@ public class TaskService {
             //check if empty -> return this empty
             return result;
         }
+
 
         //else get the book and return
         Task foundTask = result.get();
