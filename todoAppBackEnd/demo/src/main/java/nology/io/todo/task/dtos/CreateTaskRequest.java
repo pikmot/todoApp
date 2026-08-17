@@ -25,7 +25,7 @@ public class CreateTaskRequest {
         return description;
     }
 
-    public void setdescription(String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
