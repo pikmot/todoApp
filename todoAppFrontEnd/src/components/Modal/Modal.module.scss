@@ -28,8 +28,8 @@
     font-weight: 500;
 
     &__input {
-      height: fit-content;
       text-align: center;
+      line-height: 72px;
       font-size: 72px;
       font-weight: 500;
       background-color: transparent;
@@ -44,6 +44,7 @@
     &__input {
       text-align: center;
       font-size: 48px;
+      line-height: 48px;
       font-weight: 300;
       background-color: transparent;
       border: none;
