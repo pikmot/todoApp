@@ -1,4 +1,4 @@
-name: CI
+name: Backend Tests
 
 on:
   push:
@@ -19,3 +19,9 @@ jobs:
           distribution: temurin
           java-version: 17
       - run: mvn test
+      - uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Test Results
+          path: "**/surefire-reports/*.xml"
+          reporter: java-junit
