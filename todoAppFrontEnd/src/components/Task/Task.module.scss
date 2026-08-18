@@ -1,4 +1,5 @@
 @use "../../scss/mixins/mixins";
+@use "../../scss/mixins/media";
 @use "../../scss/variables/colors" as *;
 @use "../../scss/variables/fonts" as *;
 
@@ -46,6 +47,35 @@
 
     &:hover {
       opacity: 100%;
+    }
+  }
+
+  @include media.breakpoint(tablet) {
+    @include mixins.dimension(450px, 30%);
+  }
+
+  @include media.breakpoint(large-tablet) {
+    @include mixins.dimension(200px, 100px);
+  }
+
+  @include media.breakpoint(laptop) {
+    @include mixins.dimension(300px, 100px);
+  }
+
+  @include media.breakpoint(desktop) {
+    @include mixins.dimension(550px, 150px);
+    &__header {
+      color: $text-header-color;
+      font-size: 32px;
+    }
+
+    &__body {
+      color: $text-paragraph-color;
+      font-size: 24px;
+    }
+
+    &__button {
+      font-size: 32px;
     }
   }
 }

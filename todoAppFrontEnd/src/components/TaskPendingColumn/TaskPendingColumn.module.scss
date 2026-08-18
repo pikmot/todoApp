@@ -1,9 +1,10 @@
 @use "../../scss/mixins/mixins";
+@use "../../scss/mixins/media";
 @use "../../scss/variables/colors" as *;
 @use "../../scss/variables/fonts" as *;
 
 .container {
-  @include mixins.dimension(300px, 900px);
+  @include mixins.dimension(300px, 30%);
 
   @include mixins.flexbox(column, Start);
 
@@ -32,5 +33,21 @@
 
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  @include media.breakpoint(tablet) {
+    @include mixins.dimension(500px, 30%);
+  }
+
+  @include media.breakpoint(large-tablet) {
+    @include mixins.dimension(225px, 80%);
+  }
+
+  @include media.breakpoint(laptop) {
+    @include mixins.dimension(350px, 80%);
+  }
+
+  @include media.breakpoint(desktop) {
+    @include mixins.dimension(600px, 80%);
   }
 }

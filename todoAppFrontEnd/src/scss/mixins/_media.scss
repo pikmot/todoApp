@@ -1,23 +1,30 @@
-@mixin sm {
-  @media screen and (min-width: 480px) {
-    @content;
-  }
-}
+@mixin breakpoint($size) {
+  // @if $size == small-phone {
+  //   //iPhone SE 375 x 667
+  //   @media (min-width: 375px) {
+  //     @content;
+  //   }
+  // }
 
-@mixin md {
-  @media screen and (min-width: 768px) {
-    @content;
-  }
-}
-
-@mixin lg {
-  @media screen and (min-width: 1024px) {
-    @content;
-  }
-}
-
-@mixin xl {
-  @media screen and (min-width: 1280px) {
-    @content;
+  @if $size == tablet {
+    @media (min-width: 577px) {
+      //576 x 800
+      @content;
+    }
+  } @else if $size == large-tablet {
+    @media (min-width: 768px) {
+      //768 x 1024
+      @content;
+    }
+  } @else if $size == laptop {
+    @media (min-width: 1080px) {
+      //1080x 2400
+      @content;
+    }
+  } @else if $size == desktop {
+    @media (min-width: 1920px) {
+      //1920 x 1080
+      @content;
+    }
   }
 }
