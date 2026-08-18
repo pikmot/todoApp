@@ -28,7 +28,7 @@ todoApp/
 
 ## Demo & Snippets
 
-Home Screen | About Full
+Start Screen | Edited Tasks | Modal Display
 
 <div width="100%">
 <img src="./images/Start.png" width=49% >
