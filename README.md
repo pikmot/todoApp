@@ -2,6 +2,8 @@
 
 [![.github/workflows/main.yml](https://github.com/pikmot/todoApp/actions/workflows/main.yml/badge.svg)](https://github.com/pikmot/todoApp/actions/workflows/main.yml)
 
+[![CI](https://github.com/pikmot/todoApp/actions/workflows/main.yml/badge.svg)](https://github.com/pikmot/todoApp/actions/workflows/main.yml)
+
 # Todo App
 
 A fullstack todo application built with React and Spring Boot.
