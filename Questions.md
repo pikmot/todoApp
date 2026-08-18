@@ -10,5 +10,7 @@
   Note to self -> start back end first
   - recommmend adding categories -> hardcoded atm
 
+- general feedback on github -> projects
+
 MY SQL COMMAND NOTE:
 winpty /c/Program\ Files/MySQL/MySQL\ Server\ 8.0/bin/mysql.exe -u root -p
