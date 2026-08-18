@@ -1,6 +1,6 @@
 <!-- [Template Used](https://github.com/nology-tech/react-scss-template.git) -->
 
-[![CI](https://github.com/pikmot/todoApp/actions/workflows/main.yml/badge.svg)](https://github.com/pikmot/todoApp/actions/workflows/main.yml)
+[![Backend Tests](https://github.com/pikmot/todoApp/actions/workflows/main.yml/badge.svg)](https://github.com/pikmot/todoApp/actions/workflows/main.yml)
 
 # Todo App
 
